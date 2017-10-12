@@ -8,7 +8,7 @@ react-router v4 demo
 
 ### 故事开始
 
-今天本来是要从0搭建一个React项目的，然后一不小心就装了一个react-router@4.2.0，然后像曾经熟悉的样子引入以下代码：
+　　今天本来是要从0搭建一个React项目的，然后一不小心就装了一个react-router@4.2.0，然后像曾经熟悉的样子引入以下代码：
 ```
 import React, {Component} from 'react';
 import {Router, Route, browserHistory} from 'react-router';
@@ -37,8 +37,8 @@ import {
 ```
 　　在react-router 的 github release 历史中发现从v4.2.1开始发布了react-router-dom这个package，从readme中发现packages说明如下：
 　　![React-Router Packages](
-https://user-gold-cdn.xitu.io/2017/10/12/fc67e2da92c3095f4ad13ebce4913b33))
-可以看到已经将DOM绑定相关的剥离到react-router-dom中了。
+https://user-gold-cdn.xitu.io/2017/10/12/fc67e2da92c3095f4ad13ebce4913b33)
+可以看到已经将DOM绑定相关的剥离到react-router-dom中了。<br>
 　　然后在issues中看到有人说升级到v4.2.1之后以前嵌套的路由就失效了，吓得我虎躯一颤，幸亏我没有升级;)。然后就研究了一下到底该如何实现路由嵌套。官方也给出了一些示例，[这个是一级路由的实现](https://reacttraining.com/react-router/web/example/url-params)；[这个是嵌套路由的实现](https://reacttraining.com/react-router/web/example/route-config)。看过代码之后，相信细心的就看出来了，实例中导航部分都放在了路由配置模块中，代码如下：
 ```
 import React from 'react'
