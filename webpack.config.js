@@ -36,18 +36,19 @@ module.exports = {
 			template: './index.html'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
-			name: 'vendor',
+			name: "vendor",
 			minChunks: function(module){
-				return module.context && module.context.indexOf('node_modules')!==-1
+			  return module.context && module.context.indexOf("node_modules") !== -1;
 			}
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
-			name: 'manifest'
+			name: "manifest",
+			minChunks: Infinity
 		}),
-		new ChunkManifestPlugin({
-			filename:'chunk-manifest.json',
-			manifestVariable: 'webpackManifest',
-			inlineManifest: false
-		})
+		// new ChunkManifestPlugin({
+		// 	filename:'chunk-manifest.json',
+		// 	manifestVariable: 'webpackManifest',
+		// 	inlineManifest: false
+		// })
 	]
 };
