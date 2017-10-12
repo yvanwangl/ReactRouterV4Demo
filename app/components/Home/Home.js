@@ -9,13 +9,13 @@ export default class Home extends Component {
     render(){
         const {children} = this.props;
         return (
-            <div>
+            <div style={{margin: '0 auto', width: '40%'}}>
                 <ul>
                     <li><Link to='/tacos'>Tacos</Link></li>
                     <li><Link to='/sandwiches'>Sandwiches</Link></li>
                 </ul>
                 {children}
-                <div>
+                <div style={{marginTop: 100}}>
                     <a href='https://reacttraining.com/react-router/web/example/route-config' target='_blank'>官方的嵌套路由实现</a>    
                 </div>
             </div>
