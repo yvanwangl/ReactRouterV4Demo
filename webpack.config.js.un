@@ -1,0 +1,54 @@
+const path = require('path');
+const webpack = require('webpack');			  //to aceess build-in plugins
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
+
+
+
+module.exports = function(env){
+	let dir = env.dir;
+	return {
+		entry: {
+			main: path.join(__dirname, `${dir}/index.js`),
+			//vendor: [
+			//	'moment',
+			//	'lodash'
+			//]
+		},
+		output: {
+			filename:'[name].[chunkhash].js',
+			path:path.join(__dirname, `${dir}/dist`)
+		},
+		devtool: 'source-map',
+		devServer: {
+			contentBase: path.join(__dirname, `${dir}/dist`)
+		},
+		module: {
+			rules: [
+				{
+					test:/\.(js|jsx)$/,
+					use: 'babel-loader'
+				}
+			]
+		},
+		plugins:[
+			new webpack.optimize.UglifyJsPlugin(),
+			new HtmlWebpackPlugin({
+				template: `${dir}/index.html`
+			}),
+			new webpack.optimize.CommonsChunkPlugin({
+				name: 'vendor',
+				minChunks: function(module){
+					return module.context && module.context.indexOf('node_modules')!==-1
+				}
+			}),
+			new webpack.optimize.CommonsChunkPlugin({
+				name: 'manifest'
+			}),
+			new ChunkManifestPlugin({
+				filename:'chunk-manifest.json',
+				manifestVariable: 'webpackManifest'
+			})
+		]
+	}
+};
