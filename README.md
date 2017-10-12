@@ -1,9 +1,12 @@
 # ReactRouterV4Demo
 react-router v4 demo
 ### 如何使用
+
 简单两步：<br>
-1`.` `npm install`
-2`.` `npm run start`
+1`.` `npm install`<br>
+2`.` `npm run start`<br>
+
+### 故事开始
 
 今天本来是要从0搭建一个React项目的，然后一不小心就装了一个react-router@4.2.0，然后像曾经熟悉的样子引入以下代码：
 ```
