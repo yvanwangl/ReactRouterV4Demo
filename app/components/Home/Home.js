@@ -15,6 +15,9 @@ export default class Home extends Component {
                     <li><Link to='/sandwiches'>Sandwiches</Link></li>
                 </ul>
                 {children}
+                <div>
+                    <a href='https://reacttraining.com/react-router/web/example/route-config' target='_blank'>官方的嵌套路由实现</a>    
+                </div>
             </div>
         );
     }
